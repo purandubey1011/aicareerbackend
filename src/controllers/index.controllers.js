@@ -71,8 +71,17 @@ exports.currentuser = catchAsyncErrors(async (req, res, next) => {
 
 // signout student
 exports.signout = catchAsyncErrors(async (req, res, next) => {
-  res.clearCookie("token");
-  res.json({ message: "Successfully signout!" });
+   res.clearCookie("token", {
+    httpOnly: true,
+    secure: true, // because you're on HTTPS (Hostinger + Render)
+    sameSite: "None",
+    path: "/", // clear from entire site
+  });
+
+  return res.status(200).json({
+    success: true,
+    message: "Successfully signed out!",
+  });
 });
 
 exports.deleteuser = catchAsyncErrors(async (req, res, next) => {
