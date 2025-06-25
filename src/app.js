@@ -48,6 +48,6 @@ app.use(/(.*)/, (req, res, next) => {
 });
 app.use(generatedErrors)
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT}`);
+app.listen(process.env.PORT, (req,res) => {
+  console.log(`Server running at ${req.protocol}://${req.get('host')}:${process.env.PORT}`);
 });
