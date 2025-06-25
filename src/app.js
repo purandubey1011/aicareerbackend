@@ -42,7 +42,7 @@ app.use('/api/v1/ai/', require('./routes/ai.routes.js'))
 
 // Error handling 
 const ErrorHandler = require('./utils/ErrorHandler');
-const { generatedErrors } = require('./middlewares/error.js');
+const { generatedErrors } = require('./middlewares/Error.js');
 app.use(/(.*)/, (req, res, next) => {
     next(new ErrorHandler(`Requested URL Not Found: ${req.url}`, 404));
 });
