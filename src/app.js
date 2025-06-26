@@ -3,11 +3,29 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
+// app.use(cors({
+//     origin: process.env.HOST,
+//     credentials: true
+// }))
 
-app.use(cors({
-    origin: process.env.HOST,
-    credentials: true
-}))
+const allowedOrigins = ["http://localhost:5173", "https://aicareerfinder.xyz", "https://www.aicareerfinder.xyz"];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g., Postman, mobile apps)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    maxAge: 86400, // Cache preflight responses for 24 hours
+  })
+);
 
 require('./models/database.js').connectDatabase()
 
@@ -21,8 +39,8 @@ const cookieparser = require("cookie-parser");
 
 app.use(
     session({
-        resave: true,
-        saveUninitialized: true,
+        resave: false,
+        saveUninitialized: false,
         secret: process.env.EXPRESS_SESSION_SECRET,
         cookie: {
             maxAge: 1000 * 60 * 60 * 24, 
