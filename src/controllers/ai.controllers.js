@@ -108,7 +108,7 @@ exports.aicarrerfind_day1 = catchAsyncErrors(async (req, res, next) => {
 
         🌅 Closing Reflection:
         Finish with a soft, inspiring message.
-        “This is who you are — when no one’s watching. Tomorrow, we’ll uncover the mindsets and fears that might be holding you back… and the powerful drive already inside you, waiting to break through. [words: 100-150]”
+        “This is who you are — when no one’s watching. Tomorrow, we’ll uncover the mindsets and fears that might be holding you back… and the powerful drive already inside you, waiting to break through. [words: 80-100]”
       `,
     },
     {
@@ -124,23 +124,23 @@ exports.aicarrerfind_day1 = catchAsyncErrors(async (req, res, next) => {
             "insights": [
               {
                 "title": "(add related emoji) your mirror",
-                "desc": "Insightful description paragraph... [words: 100–150]",
+                "desc": "Insightful description paragraph... [words: 70-80]",
               },
               {
                 "title": "(add related emoji) You are the [Symbolic Title]",
-                "desc": "A metaphorical identity that summarizes their core traits (e.g., The Quiet Strategist, The Vision Architect, The Empathic Engineer) [words: 100-150]."
+                "desc": "A metaphorical identity that summarizes their core traits (e.g., The Quiet Strategist, The Vision Architect, The Empathic Engineer) [words: 70-80]."
               },
               {
                 "title": "(add related emoji) Who You Are at the Core",
-                "desc": "Emotional, visual description of how they think, solve problems, influence others, and what inner traits make them unique. [words: 200-250]"
+                "desc": "Emotional, visual description of how they think, solve problems, influence others, and what inner traits make them unique. [words: 80-100]"
               },
               {
                 "title": "(add related emoji) Core Values",
-                "desc": "The fundamental beliefs that guide their decisions and actions. [words: 100-150]"
+                "desc": "The fundamental beliefs that guide their decisions and actions. [words: 80-100]"
               },
               {
                 "title": "(add related emoji) Core Beliefs",
-                "desc": "The deep-seated convictions that shape their worldview. [words: 100-150]"
+                "desc": "The deep-seated convictions that shape their worldview. [words: 80-100]"
               }
 
             ],
@@ -162,7 +162,7 @@ exports.aicarrerfind_day1 = catchAsyncErrors(async (req, res, next) => {
             },
             "closingReflection": {
               "heading": "🌅 Closing Reflection",
-              "message": "One short motivational message paragraph... [words: 50-100]"
+              "message": "One short motivational message paragraph... [words: 50-80]"
             }
           }
 
@@ -274,27 +274,27 @@ Do not include any explanation, markdown, commentary, or additional text — onl
       {
         "id": "intro",
         "title": "🪞 ${user?.name}, today we step into the unseen part of your journey — the part most people hide. But you didn’t.",
-        "description": "description (Approx. 100–150 words)"
+        "description": "description (Approx. 50-70 words)"
       },
       {
         "id": "limitingBelief",
         "title": "🧱 Limiting Belief Holding You Back",
-        "description": "description (Approx. 150–200 words)"
+        "description": "description (Approx. 50-70 words)"
       },
       {
         "id": "drive",
         "title": "🔥 The Drive That Already Lives in You",
-        "description": "description (Approx. 150–200 words)"
+        "description": "description (Approx. 50-70 words)"
       },
       {
         "id": "insight",
         "title": "🧠 Story-Like Inner Insight",
-        "description": description (Approx. 250–300 words)"
+        "description": description (Approx. 50-70 words)"
       },
       {
         "id": "futureMessage",
         "title": "💌 A Message from Your Future Self",
-        "description": "description (Approx. 150–200 words)"
+        "description": "description (Approx. 50-70 words)"
       }
     ]
   },
