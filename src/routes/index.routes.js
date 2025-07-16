@@ -1,7 +1,7 @@
 let express = require("express");
 let router = express.Router();
 const { isAuthenticated } = require("../middlewares/auth.js");
-const { testroute, signup,signin,currentuser,signout,deleteuser, google_auth, forgotPassword, resetPassword, getProgressStatus,isPaymentDone} = require("../controllers/index.controllers.js");
+const { testroute, signup,signin,currentuser,signout,deleteuser, google_auth, forgotPassword, resetPassword, getProgressStatus,isPaymentDone,getAllUsers,getAllPayments} = require("../controllers/index.controllers.js");
 
 
 // home route
@@ -21,6 +21,12 @@ router.route("/signout").post(isAuthenticated, signout);
 
 // route for delete user
 router.route("/deleteuser/:id").post(isAuthenticated, deleteuser);
+
+// route to show all users 
+router.route("/users").post(isAuthenticated, getAllUsers);
+
+// route to show all users 
+router.route("/allpayments").post(isAuthenticated, getAllPayments);
 
 // route for google auth
 router.route("/google-auth").get(google_auth)

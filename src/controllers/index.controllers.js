@@ -219,3 +219,31 @@ exports.isPaymentDone = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+// getAllUsers
+exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
+  const users = await User.find();
+
+  if (!users) return next(new ErrorHandler("No users found", 404));
+
+  res.status(200).json({
+    success: true,
+    users,
+  });
+  
+});
+
+// getAllPayments
+exports.getAllPayments = catchAsyncErrors(async (req, res, next) => {
+  let users = await User.find();
+
+  if (!users) return next(new ErrorHandler("No users found", 404));
+
+  users = users.filter(user => user?.isPaymentDone);
+
+  res.status(200).json({
+    success: true,
+    users,
+  });
+
+});
+
