@@ -247,3 +247,19 @@ exports.getAllPayments = catchAsyncErrors(async (req, res, next) => {
 
 });
 
+// get all rejected payments
+exports.paymentNotDone = catchAsyncErrors(async (req, res, next) => {
+  let users = await User.find();
+
+  if (!users) return next(new ErrorHandler("No users found", 404));
+
+  users = users.filter(user => !user?.isPaymentDone);
+
+
+  res.status(200).json({
+    success: true,
+    users,
+  });
+
+});
+
