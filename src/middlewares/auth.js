@@ -4,24 +4,32 @@ const { catchAsyncErrors } = require("./catchAsyncErrors");
 const User = require("../models/user.schema");
 
 exports.isAuthenticated = catchAsyncErrors(async (req, res, next) => {
-    const { token } = req.cookies;
+    const authHeader = req.headers.authorization;
 
-    if (!token) {
+    if (!authHeader) {
         return next(
-            new ErrorHandler("Please login in to access the resource", 401)
+            new ErrorHandler("Not Authorized. Login Again", 401)
         );
     }
 
-    const { id } = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(id);
+    const token = authHeader.split(' ')[1];
 
-    if (!user) {
+    try {
+        const { id } = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await User.findById(id);
+
+        if (!user) {
+            return next(
+                new ErrorHandler("User not found", 404)
+            );
+        }
+
+        req.user = user;
+        req.id = id;
+        next();
+    } catch (error) {
         return next(
-            new ErrorHandler("User not found", 404)
+            new ErrorHandler(error.message, 401)
         );
     }
-
-    req.user = user;
-    req.id = id;
-    next();
-}); 
+});

@@ -69,13 +69,10 @@ exports.currentuser = catchAsyncErrors(async (req, res, next) => {
   res.json({ success: true, user: user });
 });
 
-// signout student
 exports.signout = catchAsyncErrors(async (req, res, next) => {
-   res.clearCookie("token", {
+   res.cookie("token", null, {
+    expires: new Date(Date.now()),
     httpOnly: true,
-    secure: true, // because you're on HTTPS (Hostinger + Render)
-    sameSite: "None",
-    path: "/", // clear from entire site
   });
 
   return res.status(200).json({
@@ -218,6 +215,8 @@ exports.isPaymentDone = catchAsyncErrors(async (req, res, next) => {
     isPaymentDone: user.isPaymentDone,
   });
 });
+
+// ******************** admin routes ********************
 
 // getAllUsers
 exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
