@@ -37,18 +37,25 @@ app.use(express.urlencoded({ extended: false }));
 const session = require("express-session");
 const cookieparser = require("cookie-parser");
 
+// Session configuration
+const MongoStore = require('connect-mongo');
 app.use(
-    session({
-        resave: false,
-        saveUninitialized: false,
-        secret: process.env.EXPRESS_SESSION_SECRET,
-        cookie: {
-            maxAge: 1000 * 60 * 60 * 24, 
-            sameSite: "None", 
-            secure: process.env.NODE_ENV === 'production', 
-            httpOnly: true, 
-        },
-    })
+  session({
+    secret: process.env.EXPRESS_SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URL, // make sure it's correct
+      collectionName: 'sessions',
+      ttl: 14 * 24 * 60 * 60, // 14 days
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+      sameSite: "None",
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+    },
+  })
 );
 
 app.use(cookieparser());
