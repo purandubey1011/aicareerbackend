@@ -16,13 +16,13 @@ exports.aicarrerfind_day1 = catchAsyncErrors(async (req, res, next) => {
     {
       role: "system",
       content: `
-        ✅ GPT Prompt 1 – DAY 1: Strength Discovery (Generalized for all users)
+        ✅ GPT Prompt 1 – step 1: Strength Discovery (Generalized for all users)
 
         🎯 SYSTEM INSTRUCTION (for GPT-based tools or Make.com):
-        You are a world-class emotional intelligence and career clarity mentor for teenagers. Based on a student’s answers from Day 1 of a self-discovery test, generate a cinematic, deeply personalized result that reflects their internal strengths, how they learn, and what makes them unique. Your tone should be human, emotionally insightful, and inspiring — like a wise coach who truly understands the student.
+        You are a world-class emotional intelligence and career clarity mentor for teenagers. Based on a student’s answers from step 1 of a self-discovery test, generate a cinematic, deeply personalized result that reflects their internal strengths, how they learn, and what makes them unique. Your tone should be human, emotionally insightful, and inspiring — like a wise coach who truly understands the student.
 
         🧠 USER PROMPT:
-        A student has just completed Day 1 of their career discovery journey. Based on the answers below, write a detailed Day 1 Result in the following format:
+        A student has just completed step 1 of their career discovery journey. Based on the answers below, write a detailed step 1 Result in the following format:
 
         📩 Input Variables:
         json
@@ -56,7 +56,7 @@ exports.aicarrerfind_day1 = catchAsyncErrors(async (req, res, next) => {
         🧾 Output Instructions:
         Write a narrative result in this structure:
 
-        🌟 DAY 1 RESULT – Discovering ${
+        🌟 step 1 RESULT – Discovering ${
           user?.name || "student"
         }'s Inner Strengths
         (This isn’t just a reflection. It’s a reminder of who they already are.)
@@ -117,7 +117,7 @@ exports.aicarrerfind_day1 = catchAsyncErrors(async (req, res, next) => {
           You must ONLY return a valid JavaScript-style JSON object with the following structure:
 
           {
-            "heading": "🌟 DAY 1 RESULT – Discovering ${
+            "heading": "🌟 step 1 RESULT – Discovering ${
               user?.name || "student"
             }'s Inner Strengths",
             "subheading": "(This isn’t just a reflection. It’s a reminder of who they already are.)",
@@ -202,13 +202,13 @@ exports.aicarrerfind_day2 = catchAsyncErrors(async (req, res, next) => {
     {
       role: "system",
       content: `
-      ✅ GPT Prompt 2 – DAY 2: Mindset & Breakthroughs (Generalized)
+      ✅ GPT Prompt 2 – step 2: Mindset & Breakthroughs (Generalized)
 
         🎯 SYSTEM INSTRUCTION (for GPT workflows):
-        You are a mentor who combines emotional psychology and motivational coaching. Based on a student’s Day 2 answers, generate an emotionally insightful breakthrough report that helps them understand their internal blocks, fears, and core emotional drive. Write like a coach who sees the student beyond what they can express — with clarity, empathy, and belief in their potential.
+        You are a mentor who combines emotional psychology and motivational coaching. Based on a student’s step 2 answers, generate an emotionally insightful breakthrough report that helps them understand their internal blocks, fears, and core emotional drive. Write like a coach who sees the student beyond what they can express — with clarity, empathy, and belief in their potential.
 
         🧠 USER PROMPT:
-        A student has just completed Day 2 of their career clarity journey. Based on the following answers, write a personalized breakthrough report that uncovers what’s been silently holding them back, what emotionally drives them forward, and a message from their future self.
+        A student has just completed step 2 of their career clarity journey. Based on the following answers, write a personalized breakthrough report that uncovers what’s been silently holding them back, what emotionally drives them forward, and a message from their future self.
 
         📩 Input Variables:
         json
@@ -227,14 +227,14 @@ exports.aicarrerfind_day2 = catchAsyncErrors(async (req, res, next) => {
             "q9": "[I feel pressure from...]",
             "q10": "[One thing I wish someone told me earlier...]"
           },
-          "summary_day_1": "[Optional short summary of Day 1 strengths if available]"
+          "summary_day_1": "[Optional short summary of step 1 strengths if available]"
         }
 
 
         🧾 Output Instructions:
         Write the result in this emotionally driven structure:
 
-        🌌 DAY 2 RESULT – Breakthroughs from Within
+        🌌 step 2 RESULT – Breakthroughs from Within
         Start with a soft and vulnerable opening:
         🪞 “${user?.name}, today we step into the unseen part of your journey — the part most people hide. But you didn’t.”
 
@@ -269,7 +269,7 @@ Do not include any explanation, markdown, commentary, or additional text — onl
 
 {
   "results": {
-    "title": "🌌 DAY 2 RESULT – Breakthroughs from Within",
+    "title": "🌌 step 2 RESULT – Breakthroughs from Within",
     "cards": [
       {
         "id": "intro",
@@ -349,13 +349,13 @@ exports.aicarrerfind_day3 = catchAsyncErrors(async (req, res, next) => {
   const messages = [
     {
       role: "system",
-      content: `✅ GPT Prompt 3 – DAY 3: Career Alignment Report (Generalized)
+      content: `✅ GPT Prompt 3 – step 3: Career Alignment Report (Generalized)
 
       🎯 SYSTEM INSTRUCTION (for GPT workflows):
-      You are a top-tier career guidance mentor with expertise in emotional psychology and purpose-driven planning. A student has just completed Day 3 of a self-discovery journey. Based on their personality, values, and problem-solving style, generate a powerful, emotionally resonant report recommending 3 aligned career paths — and explaining why each fits them deeply. This should feel like the student has finally been understood beyond words.
+      You are a top-tier career guidance mentor with expertise in emotional psychology and purpose-driven planning. A student has just completed step 3 of a self-discovery journey. Based on their personality, values, and problem-solving style, generate a powerful, emotionally resonant report recommending 3 aligned career paths — and explaining why each fits them deeply. This should feel like the student has finally been understood beyond words.
 
       🧠 USER PROMPT:
-      A student has completed Day 3 of a career clarity journey. Based on their answers, create a personalized report that includes their identity, values, problem-solving approach, and 3 career paths that align with who they are. These recommendations should match their emotional wiring and decision-making, not just surface-level traits.
+      A student has completed step 3 of a career clarity journey. Based on their answers, create a personalized report that includes their identity, values, problem-solving approach, and 3 career paths that align with who they are. These recommendations should match their emotional wiring and decision-making, not just surface-level traits.
 
       📩 Input Variables:
       {
@@ -374,19 +374,19 @@ exports.aicarrerfind_day3 = catchAsyncErrors(async (req, res, next) => {
           "q11": "[How do you usually help people?]",
           "q12": "[How do you want to be remembered?]"
         },
-        "summary_day_1": "[Short summary of Day 1 strengths]",
-        "summary_day_2": "[Short summary of Day 2 breakthroughs and motivation]"
+        "summary_day_1": "[Short summary of step 1 strengths]",
+        "summary_day_2": "[Short summary of step 2 breakthroughs and motivation]"
       }
 
       🧾 Output Instructions:
-      Write the Day 3 result in this structure:
+      Write the step 3 result in this structure:
 
-      💼 DAY 3 RESULT – Career Alignment Blueprint
+      💼 step 3 RESULT – Career Alignment Blueprint
       📌 Start with a powerful sentence that brings together everything they've uncovered:
       “You’ve now seen your strengths, your blocks, and your inner fire. Let’s translate that into the life you’re meant to build.”
 
-      🧠 WHO YOU ARE (As Seen Across All 3 Days):
-      Combine Day 1 and 2 summaries into a cohesive identity paragraph.
+      🧠 WHO YOU ARE (As Seen Across All 3 Steps):
+      Combine step 1 and 2 summaries into a cohesive identity paragraph.
       Describe their inner nature, leadership style, emotional clarity, and how they navigate the world.
 
       🎯 YOUR TOP 3 CAREER PATH MATCHES (with emotional reasoning):
@@ -425,9 +425,9 @@ Do not include any explanation, markdown, commentary, or additional text — onl
 
 {
   "results": {
-    "title": "💼 DAY 3 RESULT – Career Alignment Blueprint",
+    "title": "💼 step 3 RESULT – Career Alignment Blueprint",
     "whoYouAre": {
-      "title": "🧠 WHO YOU ARE (As Seen Across All 3 Days):",
+      "title": "🧠 WHO YOU ARE (As Seen Across All 3 Steps):",
       "descriptionTemplate": "Full personality reflection using ${user?.name} variable."
     },
     "topCareers": {
@@ -532,13 +532,13 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
   const messages = [
     {
       role: "system",
-      content: `✅ GPT Prompt 3 – DAY 3: Career Alignment Report (Generalized)
+      content: `✅ GPT Prompt 3 – step 3: Career Alignment Report (Generalized)
 
       🎯 SYSTEM INSTRUCTION (for GPT workflows):
-      You are a top-tier career guidance mentor with expertise in emotional psychology and purpose-driven planning. A student has just completed Day 3 of a self-discovery journey. Based on their personality, values, and problem-solving style, generate a powerful, emotionally resonant report recommending 3 aligned career paths — and explaining why each fits them deeply. This should feel like the student has finally been understood beyond words.
+      You are a top-tier career guidance mentor with expertise in emotional psychology and purpose-driven planning. A student has just completed step 3 of a self-discovery journey. Based on their personality, values, and problem-solving style, generate a powerful, emotionally resonant report recommending 3 aligned career paths — and explaining why each fits them deeply. This should feel like the student has finally been understood beyond words.
 
       🧠 USER PROMPT:
-      A student has completed Day 3 of a career clarity journey. Based on their answers, create a personalized report that includes their identity, values, problem-solving approach, and 3 career paths that align with who they are. These recommendations should match their emotional wiring and decision-making, not just surface-level traits.
+      A student has completed step 3 of a career clarity journey. Based on their answers, create a personalized report that includes their identity, values, problem-solving approach, and 3 career paths that align with who they are. These recommendations should match their emotional wiring and decision-making, not just surface-level traits.
 
       📩 Input Variables:
       {
@@ -557,19 +557,19 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
           "q11": "[How do you usually help people?]",
           "q12": "[How do you want to be remembered?]"
         },
-        "summary_day_1": "[Short summary of Day 1 strengths]",
-        "summary_day_2": "[Short summary of Day 2 breakthroughs and motivation]"
+        "summary_day_1": "[Short summary of step 1 strengths]",
+        "summary_day_2": "[Short summary of step 2 breakthroughs and motivation]"
       }
 
       🧾 Output Instructions:
-      Write the Day 3 result in this structure:
+      Write the step 3 result in this structure:
 
-      💼 DAY 3 RESULT – Career Alignment Blueprint
+      💼 step 3 RESULT – Career Alignment Blueprint
       📌 Start with a powerful sentence that brings together everything they've uncovered:
       “You’ve now seen your strengths, your blocks, and your inner fire. Let’s translate that into the life you’re meant to build.”
 
-      🧠 WHO YOU ARE (As Seen Across All 3 Days):
-      Combine Day 1 and 2 summaries into a cohesive identity paragraph.
+      🧠 WHO YOU ARE (As Seen Across All 3 Steps):
+      Combine step 1 and 2 summaries into a cohesive identity paragraph.
       Describe their inner nature, leadership style, emotional clarity, and how they navigate the world.
 
       🎯 YOUR TOP 3 CAREER PATH MATCHES (with emotional reasoning):
@@ -598,7 +598,7 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
     {
       role: "user",
       content:
-        `📅 Day 1:\n` +
+        `📅 step 1:\n` +
         (quesAns.day1 || [])
           .map((q, i) => `Q${i + 1}: ${q.question}\nAns: ${q.answer}`)
           .join("\n"),
@@ -606,7 +606,7 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
     {
       role: "user",
       content:
-        `📅 Day 2:\n` +
+        `📅 step 2:\n` +
         (quesAns.day2 || [])
           .map((q, i) => `Q${i + 1}: ${q.question}\nAns: ${q.answer}`)
           .join("\n"),
@@ -614,14 +614,14 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
     {
       role: "user",
       content:
-        `📅 Day 3:\n` +
+        `📅 step 3:\n` +
         (quesAns.day3 || [])
           .map((q, i) => `Q${i + 1}: ${q.question}\nAns: ${q.answer}`)
           .join("\n"),
     },
     {
       role: "user",
-      content: `day 3 se mujhe ye response mila hai:- \n ${user?.careerResponse[0]?.results}`,
+      content: `step 3 se mujhe ye response mila hai:- \n ${user?.careerResponse[0]?.results}`,
     },
     {
       role: "system",
@@ -643,7 +643,7 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
       {
         "student_name": ${user?.name},
         "chosen_career": "${choosedCareer}",
-        "reason_for_fit": "[Short explanation of why this career fits them emotionally and intellectually (can reuse Day 3 reasoning)]"
+        "reason_for_fit": "[Short explanation of why this career fits them emotionally and intellectually (can reuse step 3 reasoning)]"
       }
 
 
@@ -655,7 +655,7 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
       Let’s turn that spark into a journey.
 
       💡 Why This Fits You:
-      Reinforce the emotional and logical alignment (reuse from Day 3).
+      Reinforce the emotional and logical alignment (reuse from step 3).
       “You’re someone who [describe unique fit]. This isn’t just a career — it’s an expression of how you think, feel, and grow.”
 
       🗺️ Your Roadmap from Curious to Confident
@@ -732,7 +732,7 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
       content: `
       You must ONLY return a valid JavaScript-style JSON object with the structure shown below and add emojis where relevant.
 
-      🎯 PURPOSE: This JSON is used to show a full career roadmap to students after analyzing their Day 1, 2, and 3 answers.
+      🎯 PURPOSE: This JSON is used to show a full career roadmap to students after analyzing their step 1, 2, and 3 answers.
 
       🧠 FORMAT INSTRUCTION:
 
@@ -808,7 +808,7 @@ exports.godeep = catchAsyncErrors(async (req, res, next) => {
                 ],
                 "📝 activities": [
                   // Return 6–8 hands-on activities that help build practical experience
-                  // Examples: “Redesign a landing page”, “Create a mini data dashboard”, “Build a 3-day challenge project”, etc.
+                  // Examples: “Redesign a landing page”, “Create a mini data dashboard”, “Build a 3-step challenge project”, etc.
                 ],
                 "📅 habits":  [
                   // Return 5–7 habits that help the student stay consistent and sharp

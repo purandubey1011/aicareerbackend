@@ -24,30 +24,27 @@ exports.day1form = catchAsyncErrors(async (req, res, next) => {
   user.quesAns.day1SubmittedAt = new Date();
   await user.save();
 
-  await transporter.sendMail({
-    to: user.email,
-    subject: "✅ Day 1 Form Submitted Successfully!",
-    html: `
+ await transporter.sendMail({
+  to: user.email,
+  subject: "✅ Step 1 Form Submitted Successfully!",
+  html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
       <div style="text-align: center; padding-bottom: 20px;">
-        <h2 style="color: #4CAF50;">🎉 Day 1 Form Submitted!</h2>
+        <h2 style="color: #4CAF50;">🎉 Step 1 Form Submitted!</h2>
       </div>
-      <p style="font-size: 16px; color: #333;">Hi <strong>${
-        user.name
-      }</strong>,</p>
+      <p style="font-size: 16px; color: #333;">Hi <strong>${user.name}</strong>,</p>
       <p style="font-size: 15px; color: #333; line-height: 1.6;">
-        We’re happy to let you know that your <strong>Day 1 Career Discovery Form</strong> has been successfully submitted on <strong>${new Date().toLocaleDateString()}</strong>.
+        We’re happy to let you know that your <strong>Step 1 Career Discovery Form</strong> has been successfully submitted on <strong>${new Date().toLocaleDateString()}</strong>.
       </p>
       <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0;" />
       <h4 style="color: #4CAF50;">What’s Next?</h4>
       <ul style="font-size: 15px; line-height: 1.6; color: #444; padding-left: 20px;">
         <li>✅ Your answers have been saved securely.</li>
-        <li>🕒 Please wait 24 hours before accessing Day 2 (or 1 minute if in testing).</li>
         <li>🚀 You’ll unlock personalized career insights based on your input.</li>
       </ul>
       <p style="font-size: 15px; margin-top: 20px;">You can always return to your dashboard and continue from where you left off.</p>
       <div style="text-align: center; margin: 30px 0;">
-        <a href="http://localhost:5173/" style="background-color: #4CAF50; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">
+        <a href="https://aicareerfinder.xyz/" style="background-color: #4CAF50; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">
           Go to Dashboard
         </a>
       </div>
@@ -57,7 +54,8 @@ exports.day1form = catchAsyncErrors(async (req, res, next) => {
       </div>
     </div>
   `,
-  });
+});
+
 
   res.status(200).json({
     success: true,
@@ -88,29 +86,26 @@ exports.day2form = catchAsyncErrors(async (req, res, next) => {
   await user.save();
 
   await transporter.sendMail({
-    to: user.email,
-    subject: "✅ Day 2 Form Submitted Successfully!",
-    html: `
+  to: user.email,
+  subject: "✅ Step 2 Form Submitted Successfully!",
+  html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background-color: #f9f9f9;">
       <div style="text-align: center; padding-bottom: 20px;">
-        <h2 style="color: #2196F3;">👏 Day 2 Form Submitted!</h2>
+        <h2 style="color: #2196F3;">👏 Step 2 Form Submitted!</h2>
       </div>
-      <p style="font-size: 16px; color: #333;">Hi <strong>${
-        user.name
-      }</strong>,</p>
+      <p style="font-size: 16px; color: #333;">Hi <strong>${user.name}</strong>,</p>
       <p style="font-size: 15px; color: #333; line-height: 1.6;">
-        Great job completing your <strong>Day 2 Career Exploration Form</strong>! Your submission was received successfully on <strong>${new Date().toLocaleDateString()}</strong>.
+        Great job completing your <strong>Step 2 Career Exploration Form</strong>! Your submission was received successfully on <strong>${new Date().toLocaleDateString()}</strong>.
       </p>
       <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0;" />
       <h4 style="color: #2196F3;">What’s Next?</h4>
       <ul style="font-size: 15px; line-height: 1.6; color: #444; padding-left: 20px;">
         <li>📥 Your answers have been saved and stored securely.</li>
-        <li>🕒 Please wait 24 hours before accessing Day 3 (or 1 minute if in testing).</li>
-        <li>🌟 Day 3 will unlock a personalized roadmap based on your answers so far.</li>
+        <li>🌟 Step 3 will unlock a personalized roadmap based on your answers so far.</li>
       </ul>
       <p style="font-size: 15px; margin-top: 20px;">You're getting closer to discovering a career that truly fits you.</p>
       <div style="text-align: center; margin: 30px 0;">
-        <a href="http://localhost:5173/" style="background-color: #2196F3; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">
+        <a href="https://aicareerfinder.xyz/" style="background-color: #2196F3; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">
           View Your Progress
         </a>
       </div>
@@ -120,7 +115,8 @@ exports.day2form = catchAsyncErrors(async (req, res, next) => {
       </div>
     </div>
   `,
-  });
+});
+
 
   res.status(200).json({
     success: true,
@@ -128,8 +124,6 @@ exports.day2form = catchAsyncErrors(async (req, res, next) => {
     day2: user.quesAns.day2,
   });
 });
-
-// save day3 form data
 
 // Save Day 3 form
 exports.day3form = catchAsyncErrors(async (req, res, next) => {
@@ -153,21 +147,19 @@ exports.day3form = catchAsyncErrors(async (req, res, next) => {
   await user.save();
 
   await transporter.sendMail({
-    to: user.email,
-    subject: "🎯 Congratulations! Your Career Journey is Complete",
-    html: `
+  to: user.email,
+  subject: `🎯 Congratulations ${user.name}! Your Career Journey is Complete`,
+  html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background-color: #ffffff;">
       <div style="text-align: center; padding-bottom: 20px;">
-        <h2 style="color: #4CAF50;">🎉 Day 3 Completed Successfully!</h2>
+        <h2 style="color: #4CAF50;">🎉 Step 3 Completed Successfully!</h2>
         <p style="font-size: 16px; color: #444;">You've reached the final step of your career discovery journey.</p>
       </div>
 
-      <p style="font-size: 15px; color: #333;">Hi <strong>${
-        user.name
-      }</strong>,</p>
+      <p style="font-size: 15px; color: #333;">Hi <strong>${user.name}</strong>,</p>
 
       <p style="font-size: 15px; line-height: 1.6; color: #333;">
-        Congratulations on completing <strong>Day 3</strong> of your career discovery journey! You’ve taken the time to deeply reflect on your interests, strengths, and aspirations over the past few days. 🌟
+        Congratulations on completing <strong>Step 3</strong> of your career discovery journey! You’ve taken the time to deeply reflect on your interests, strengths, and aspirations. 🌟
       </p>
 
       <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0;" />
@@ -175,12 +167,12 @@ exports.day3form = catchAsyncErrors(async (req, res, next) => {
       <h4 style="color: #4CAF50;">✅ What's Next?</h4>
       <ul style="font-size: 15px; color: #444; line-height: 1.6; padding-left: 20px;">
         <li>📊 Your personalized <strong>Career Roadmap</strong> is now ready.</li>
-        <li>🧠 Based on your Day 1, Day 2, and Day 3 answers, we’ve generated a tailored path for your career growth.</li>
+        <li>🧠 Based on your Step 1, Step 2, and Step 3 answers, we’ve generated a tailored path for your career growth.</li>
         <li>🚀 This roadmap includes recommended roles, action steps, and learning resources.</li>
       </ul>
 
       <div style="text-align: center; margin: 30px 0;">
-        <a href="https://your-app-url.com/user/day3home" style="background-color: #4CAF50; color: white; text-decoration: none; padding: 12px 24px; border-radius: 5px; font-size: 16px;">
+        <a href="https://aicareerfinder.xyz/user/day3home" style="background-color: #4CAF50; color: white; text-decoration: none; padding: 12px 24px; border-radius: 5px; font-size: 16px;">
           View Your Career Roadmap
         </a>
       </div>
@@ -193,12 +185,20 @@ exports.day3form = catchAsyncErrors(async (req, res, next) => {
 
       <p style="font-size: 15px; color: #4CAF50; font-weight: bold;">– Career AI Assistant Team</p>
 
+      <hr style="border: none; border-top: 1px solid #ccc; margin: 30px 0;" />
+
+      <p style="font-size: 14px; color: #555; line-height: 1.6;">
+        💬 <strong>We'd Love Your Feedback:</strong><br />
+        Let us know how your experience was — we're always improving to help future explorers like you.
+      </p>
+
       <div style="text-align: center; font-size: 12px; color: #bbb; margin-top: 30px;">
         &copy; ${new Date().getFullYear()} Career AI Assistant. All rights reserved.
       </div>
     </div>
   `,
-  });
+});
+
 
   res.status(200).json({
     success: true,
